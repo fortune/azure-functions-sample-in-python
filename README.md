@@ -257,36 +257,30 @@ $ func settings decrypt
 とすればいい。
 
 
-## Git 環境を GitHub と結びつける
+## GitHub へ push する
 
+作成直後のプロジェクトは git のローカルリポジトリが設定済みなので、commit し、好きなリモートリポジトリへと push できる。
+
+GitHub を使うなら、ブラウザ上で `azure-functions-sample-in-python` という空のリポジトリを作成し、作成後に
+表示される指示にしたがって次のようにすればいい。
+
+```shell
+$ git remote add origin git@github.com:fortune/azure-functions-sample-in-python.git
+$ git push -u origin master
+```
+
+もちろん、前もって鍵の生成や `~/.ssh/config` ファイルで Github 向けの設定が済んでいなければならない。
 
 
 ## ソース管理の方針
 
+`local.settings.json` はソース管理から除外するように `.gitignore` ファイルで最初から設定されている。
+`local.settings.json` にはストレージアカウントへの接続文字列等、秘密にすべき情報が含まれることがあるので
+これは当然のことだ。
 
+各開発者のテスト環境やステージング環境、本番環境ごとに Azure 上の `Function app` は別々になるから、
+それらのアプリケーション設定も `local.settings.fortune.json`, `local.settings.staging.json`, `local.settings.microsoft.json` などのように個別に作成し、それらもソース管理からは除外する。そして、デプロイするときに
+`local.settings.json` にコピーして、**local.settings.json のデプロイ** で述べたやり方でアップしてやればいい。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+もしくは、ローカルのアプリ設定はデプロイせずに、Portal 上でアプリケーション設定をし、それをダウンロードするように
+してもいいかもしれない。
