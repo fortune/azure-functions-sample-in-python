@@ -1,10 +1,9 @@
 adal==1.2.1
 asn1crypto==0.24.0
 astroid==2.2.0
-azure-common==1.1.18
-azure-functions==1.0.0b3
-azure-functions-worker==1.0.0b4
-azure-mgmt-compute==4.4.0
+azure-common==1.1.23
+azure-functions==1.0.0b5
+azure-mgmt-compute==6.0.0
 certifi==2018.11.29
 cffi==1.12.2
 chardet==3.0.4
